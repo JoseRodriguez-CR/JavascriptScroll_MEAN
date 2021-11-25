@@ -30,17 +30,16 @@
                 space=" ";
             function updateText(){
 
+                let character = words[word_counter][character_counter++]
+
+
+                if(character  === " "){
+                    character = "&nbsp;"
+                    
+				}
+                el.innerHTML = el.innerHTML + character;
                 
-
-                el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-                console.log(el.innerHTML);
-
-                if(words[word_counter][character_counter] === " "){
-                    el.innerHTML = el.innerHTML + " ";
-				character_counter++;
-
-                }
-                else if(character_counter == words[word_counter].length+1)
+                if(character_counter == words[word_counter].length+1)
                 {
                     word_counter++; 	//choose a different word
                     character_counter = 0;	//start over with the first character of the word
@@ -50,7 +49,7 @@
                         word_counter = 0;
                 }
             }
-            setInterval(updateText,1000);
+            setInterval(updateText,300);
         </script>
     </body>
 </html>
